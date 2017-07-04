@@ -1,50 +1,28 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  AlertIOS,
-  NavigatorIOS,
-  TouchableHighlight,
-  ScrollView,
   View,
   Text
 } from 'react-native';
+import {Scene, Router} from 'react-native-router-flux';
+import Home from '../home/Home';
+import List from '../list/List';
+import Footer from '../footer/Footer';
 
 class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+      <View style={{flex:1 }}>
+        <Router>
+          <Scene key="home" component={Home} title='home' initial />
+          <Scene key="list" component={List} title='list' hide/>
+        </Router>
+        <Footer />
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+
 
 module.exports = App;
