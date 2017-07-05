@@ -6,20 +6,18 @@ import {
   Platform
 } from 'react-native';
 import {Scene, Router} from 'react-native-router-flux';
-import Home from '../home/Home';
-import List from '../list/List';
-import Footer from '../footer/Footer';
+import Learn from '../learn/Learn';
+import MainList from '../main/MainList';
+import Dictation from '../dictation/Dictation';
 
 class App extends Component {
   render() {
     return (
-      <View style={{flex:1 }}>
-        <Router>
-          <Scene key="home" getSceneStyle={getSceneStyle} component={Home} title='home' type='replace' initial/>
-          <Scene key="list" getSceneStyle={getSceneStyle} component={List} title='list' type='replace' />
-        </Router>
-        <Footer />
-      </View>
+      <Router>
+        <Scene key="learn" getSceneStyle={getSceneStyle} component={Learn} title='learn' type='replace' initial/>
+        <Scene key="mainList" getSceneStyle={getSceneStyle} component={MainList} title='mainList' type='replace' />
+        <Scene key="dictation" getSceneStyle={getSceneStyle} component={Dictation} title='dictation' hideNavBar hideNavBar/>
+      </Router>
     );
   }
 }
